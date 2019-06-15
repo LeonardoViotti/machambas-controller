@@ -15,17 +15,21 @@ void setup() {
 
 } 
  
-void loop() {                 
+void loop() {
+  
+  // Wait before first open                 
+  digitalWrite(solenoidPin, HIGH);  
+  delay(30000); //30s
 
   // Open period
   Serial.println("Valve open");                  
   digitalWrite(solenoidPin, LOW);    //Switch Solenoid ON
-  delay(2000);
+  delay(10000); // 10s
   
   // Closed period
   Serial.println("Valve closed");                  
   digitalWrite(solenoidPin, HIGH);     //Switch Solenoid OFF
-  delay(60000);  
+  delay(60000); // 1m
 
 
 }
