@@ -24,12 +24,12 @@ void loop() {
   // Open period
   Serial.println("Valve open");                  
   digitalWrite(solenoidPin, LOW);    //Switch Solenoid ON
-  delay(10000); // 10s
+  delay(5000); // 5s
   
   // Closed period
   Serial.println("Valve closed");                  
   digitalWrite(solenoidPin, HIGH);     //Switch Solenoid OFF
-  delay(60000); // 1m
+  delay(3600000); // 1h
 
 
 }
