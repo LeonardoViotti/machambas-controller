@@ -1,40 +1,31 @@
-// Regador - v0
-
-// Run this on terminal on linux to change porte writing rights
-// ls -l /dev/ttyACM*
-// sudo chmod a+rw /dev/ttyACM0
-
-// Global variables
-//int timeOpen = 2000; // 2 second
-//int timeClosed = 6000; // 1 minute
-
 
 // Pin set up
-int solenoidPin = 4;    //Select utput pin
- 
-void setup() {    
-  pinMode(solenoidPin, OUTPUT);
+int solenoidPin1 = 4;    //Select utput pin
+int solenoidPin2 = 2;    //Select utput pin
+
+void setup() {
+  //Set up pins
+  pinMode(solenoidPin1, OUTPUT);
+  pinMode(solenoidPin2, OUTPUT);
+
+  // Set up print
   Serial.begin(9600); // Print setup
+  Serial.println("Controller start!"); 
+}
 
-  Serial.println("Controller start!");                  
-
-} 
- 
 void loop() {
-  
   // Wait before first open                 
-  digitalWrite(solenoidPin, HIGH);  
+  digitalWrite(solenoidPin1, HIGH);  
   delay(30000); //30s
 
   // Open period
   Serial.println("Valve open");                  
-  digitalWrite(solenoidPin, LOW);    //Switch Solenoid ON
+  digitalWrite(solenoidPin1, LOW);    //Switch Solenoid ON
   delay(2500); // 2.5s
   
   // Closed period
   Serial.println("Valve closed");                  
-  digitalWrite(solenoidPin, HIGH);     //Switch Solenoid OFF
+  digitalWrite(solenoidPin1, HIGH);     //Switch Solenoid OFF
   delay(43200000); // 12h
-
 
 }
