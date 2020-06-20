@@ -15,8 +15,8 @@
 // GLOBALS
 int pump1_open_t = 2500;
 int pump2_open_t = 5000;
-int irr_interval_t = 30000;
-//int irr_interval_t = 43200000;
+//int irr_interval_t = 30000;
+int irr_interval_t = 43200000;
 
 
 // Pin set up
