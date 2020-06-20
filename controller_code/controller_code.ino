@@ -1,7 +1,17 @@
 /* 
   MACHAMBAS IRRIGATION CONTROLLER
+  
+  Hardware:
+    - Arduino Uno
+    - SainSmart 2 channel relay module
+    - RTC DS3231 AT24C32 IIC module (under development)
+
+  Usefull links and references
+    - https://randomnerdtutorials.com/guide-for-relay-module-with-arduino/
+
  */
 
+//-------------------------------------------------------------------------
 // GLOBALS
 int pump1_open_t = 2500;
 int pump2_open_t = 5000;
@@ -15,6 +25,7 @@ int solenoidPin2 = 2;    //Pump 2 in relay-IN2
 // Relay GND - Arduino GND
 // Relay VCC - Arduino 5V
 
+//-------------------------------------------------------------------------
 void setup() {
   //Set up pins
   pinMode(solenoidPin1, OUTPUT);
@@ -25,6 +36,7 @@ void setup() {
   Serial.println("Controller start!"); 
 }
 
+//-------------------------------------------------------------------------
 void loop() {
   // Set both pins to high (relay closed) and wait before first open.                 
   digitalWrite(solenoidPin1, HIGH);  
