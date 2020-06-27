@@ -1,5 +1,12 @@
-// Date and time functions using a DS3231 RTC connected via I2C and Wire lib
 #include "RTClib.h"
+
+
+// Pin set up
+// RTC SDA - Arduino SDA
+// RTC SCL - Arduino SCL
+// RTC GND - Arduino GND
+// RTC VCC - Arduino 5V
+
 
 RTC_DS3231 rtc;
 
@@ -23,16 +30,16 @@ void setup() {
   // rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
   // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
 
-  //rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-  //rtc.adjust(DateTime(2020, 4, 26, 18, 0, 0));
+  rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+  rtc.adjust(DateTime(2020, 6, 27, 16, 0, 0));
 
 
 }
 
 void loop() {
 
-DateTime now = rtc.now();
-
+    DateTime now = rtc.now();
+  
 
     // Print date, time and temperature.
     Serial.print(now.year(), DEC);
