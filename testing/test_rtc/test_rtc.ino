@@ -30,8 +30,8 @@ void setup() {
   // rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
   // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
 
-  rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-  rtc.adjust(DateTime(2020, 6, 27, 16, 0, 0));
+  //rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+  //rtc.adjust(DateTime(2020, 6, 27, 16, 0, 0));
 
 
 }
