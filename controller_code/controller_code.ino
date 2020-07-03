@@ -19,6 +19,12 @@ RTC_DS3231 rtc;
 
 //-------------------------------------------------------------------------
 // GLOBALS
+
+// Watering cycle time
+int cycle_hour = 19;
+int cycle_minute = 57;
+
+// Watering cycle size
 int pump1_open_t = 2500;
 int pump2_open_t = 5000;
 
@@ -48,6 +54,18 @@ void setup() {
     while (1);
   }
 
+  // If needed to set the time of the uncomment lines below and
+  // upload the code once. After that, comment the line again
+  // and if RTC module has power it will keep the correct time.
+  // January 21, 2014 at 3am you would call:
+  // rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+  // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
+
+  //rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+  //rtc.adjust(DateTime(2020, 7, 1, 19, 10, 0));
+
+
+
 }
 
 //-------------------------------------------------------------------------
@@ -65,13 +83,33 @@ void loop() {
   //-----------------------------------------------------------------------
   // Irrigation cycle interval
   //  This sets a period of one minute in the day when the cycle can happen. 
-  if(now.hour() == 15 && now.minute() == 24 ){
+  if(now.hour() == cycle_hour && now.minute() == cycle_minute ){
     IrrigationCycle(pump1_open_t, pump2_open_t);  
   
     // Delay 1 minute so cycle only happens once per day
     delay(60000);
   }
+
+
+  //-----------------------------------------------------------------------
+  // Print date, time and temperature.
+    Serial.print(now.year(), DEC);
+    Serial.print('/');
+    Serial.print(now.month(), DEC);
+    Serial.print('/');
+    Serial.print(now.day(), DEC);
+    Serial.print(' ');
+
+    Serial.print(now.hour(), DEC);
+    Serial.print(':');
+    Serial.print(now.minute(), DEC);
+    Serial.print(' ');
     
+    Serial.print("Temperature: ");
+    Serial.print(rtc.getTemperature());
+    Serial.println(" C");
+
+    Serial.println();
 }
 
 //-------------------------------------------------------------------------
