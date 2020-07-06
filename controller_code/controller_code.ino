@@ -90,26 +90,10 @@ void loop() {
     delay(60000);
   }
 
-
   //-----------------------------------------------------------------------
   // Print date, time and temperature.
-    Serial.print(now.year(), DEC);
-    Serial.print('/');
-    Serial.print(now.month(), DEC);
-    Serial.print('/');
-    Serial.print(now.day(), DEC);
-    Serial.print(' ');
+  PrintTimeTemp() 
 
-    Serial.print(now.hour(), DEC);
-    Serial.print(':');
-    Serial.print(now.minute(), DEC);
-    Serial.print(' ');
-    
-    Serial.print("Temperature: ");
-    Serial.print(rtc.getTemperature());
-    Serial.println(" C");
-
-    Serial.println();
 }
 
 //-------------------------------------------------------------------------
@@ -137,4 +121,25 @@ void IrrigationCycle(int pump1_t, int pump2_t) {
     Serial.println("Pump 2 closed");                  
     digitalWrite(solenoidPin2, HIGH);
 
+}
+
+
+void PrintTimeTemp() {
+    Serial.print(now.year(), DEC);
+    Serial.print('/');
+    Serial.print(now.month(), DEC);
+    Serial.print('/');
+    Serial.print(now.day(), DEC);
+    Serial.print(' ');
+
+    Serial.print(now.hour(), DEC);
+    Serial.print(':');
+    Serial.print(now.minute(), DEC);
+    Serial.print(' ');
+    
+    Serial.print("Temperature: ");
+    Serial.print(rtc.getTemperature());
+    Serial.println(" C");
+
+    Serial.println();
 }
