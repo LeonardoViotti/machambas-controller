@@ -21,8 +21,8 @@ RTC_DS3231 rtc;
 // GLOBALS
 
 // Watering cycle time
-int cycle_hour = 19;
-int cycle_minute = 57;
+int cycle_hour = 17;
+int cycle_minute = 28;
 
 // Watering cycle size
 int pump1_open_t = 2500;
@@ -92,7 +92,7 @@ void loop() {
 
   //-----------------------------------------------------------------------
   // Print date, time and temperature.
-  PrintTimeTemp() 
+  PrintTimeTemp(now);
 
 }
 
@@ -124,7 +124,7 @@ void IrrigationCycle(int pump1_t, int pump2_t) {
 }
 
 
-void PrintTimeTemp() {
+void PrintTimeTemp(DateTime now) {
     Serial.print(now.year(), DEC);
     Serial.print('/');
     Serial.print(now.month(), DEC);
