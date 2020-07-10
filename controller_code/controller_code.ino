@@ -21,12 +21,13 @@ RTC_DS3231 rtc;
 // GLOBALS
 
 // Watering cycle time
-int cycle_hour = 11;
-int cycle_minute = 31;
+int cycle_hour = 06;
+int cycle_minute = 35
+;
 
 // Watering cycle size
-int pump1_open_t = 4000;
-int pump2_open_t = 7500;
+int pump1_open_t = 5000;
+int pump2_open_t = 5000;
 
 // Pin set up
 int solenoidPin1 = 4;    //Pump 1 in relay-IN1
